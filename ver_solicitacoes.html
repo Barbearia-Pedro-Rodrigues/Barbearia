@@ -15,8 +15,8 @@
     <style>
       body {
         font-family: Arial, sans-serif;
-        background: #222;
-        color: #fff;
+        background: #fff;
+        color: #222;
         margin: 0;
         padding: 0;
         display: flex;
@@ -25,17 +25,18 @@
         min-height: 100vh;
       }
       .container {
-        background: #333;
+        background: #fff;
         padding: 40px 30px;
         border-radius: 10px;
         margin-top: 40px;
         text-align: center;
-        width: 400px;
-        box-shadow: 0 0 10px #111;
+        width: 430px;
+        box-shadow: 0 0 10px #1112;
         max-width: 98vw;
+        border: 1.5px solid #388e3c;
       }
       .voltar-btn {
-        background: #007acc;
+        background: #ff9800;
         color: #fff;
         border: none;
         border-radius: 5px;
@@ -48,14 +49,17 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
+        font-weight: bold;
+        box-shadow: 0 2px 8px #1112;
       }
       .voltar-btn:hover {
-        background: #005fa3;
+        background: #388e3c;
+        color: #fff;
       }
       h1 {
-        color: #00c853;
+        color: #388e3c;
         margin-bottom: 20px;
-        font-size: 1.5em;
+        font-size: 1.6em;
         letter-spacing: 1px;
         font-weight: bold;
       }
@@ -69,14 +73,14 @@
       .filtro-linha {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
         width: 100%;
         max-width: 400px;
         flex-wrap: wrap;
         justify-content: center;
       }
       .filtro-label {
-        color: #00c853;
+        color: #388e3c;
         font-weight: bold;
         font-size: 1.07em;
         white-space: nowrap;
@@ -84,28 +88,54 @@
       .filtro-select,
       .filtro-input,
       #rangeSemana {
-        padding: 6px 10px;
+        padding: 7px 10px;
         border-radius: 6px;
-        border: none;
+        border: 1.5px solid #388e3c;
         font-size: 1em;
-        background: #181818;
-        color: #00c853;
+        background: #fff;
+        color: #388e3c;
         outline: none;
         min-width: 130px;
-        border: 1.5px solid #00c853;
-        transition: border 0.2s;
         box-sizing: border-box;
         cursor: pointer;
         margin-bottom: 2px;
+        transition: border 0.2s, background 0.2s, color 0.2s;
       }
       .filtro-select:focus,
       .filtro-input:focus,
       #rangeSemana:focus {
-        border: 2px solid #00c853;
-        background: #222;
+        border: 2px solid #ff9800;
+        background: #f7fff7;
+        color: #ff9800;
+      }
+      .filtro-label-tipo {
+        color: #ff9800;
+        font-weight: bold;
+        font-size: 1.07em;
+        margin-left: 8px;
+        white-space: nowrap;
+      }
+      .filtro-select-tipo {
+        padding: 7px 10px;
+        border-radius: 6px;
+        border: 1.5px solid #ff9800;
+        font-size: 1em;
+        background: #fff;
+        color: #ff9800;
+        outline: none;
+        min-width: 130px;
+        box-sizing: border-box;
+        cursor: pointer;
+        margin-bottom: 2px;
+        transition: border 0.2s, background 0.2s, color 0.2s;
+      }
+      .filtro-select-tipo:focus {
+        border: 2px solid #388e3c;
+        background: #f7fff7;
+        color: #388e3c;
       }
       #periodoSelecionado {
-        color: #00c853;
+        color: #388e3c;
         font-weight: bold;
         margin-bottom: 8px;
         font-size: 1em;
@@ -114,51 +144,97 @@
         max-width: 400px;
         min-height: 20px;
       }
+      #totaisBarbeiros {
+        margin: 10px 0 18px 0;
+        text-align: left;
+        background: #f7fff7;
+        border-radius: 8px;
+        padding: 14px 14px 10px 14px;
+        color: #222;
+        font-size: 1.09em;
+        box-shadow: 0 2px 8px #1112;
+        border-left: 4px solid #ff9800;
+      }
+      #totaisBarbeiros .total-label {
+        color: #ff9800;
+        font-weight: bold;
+        margin-right: 8px;
+      }
+      #totaisBarbeiros .total-pendente {
+        color: #ffb300;
+        font-weight: bold;
+        margin-right: 8px;
+        display: block;
+        margin-top: 4px;
+      }
+      #totaisBarbeiros .total-concluido {
+        color: #388e3c;
+        font-weight: bold;
+        margin-right: 8px;
+        display: block;
+        margin-top: 4px;
+      }
+      #totaisBarbeiros .total-geral {
+        color: #222;
+        font-weight: bold;
+        margin-right: 8px;
+        display: block;
+        margin-top: 4px;
+      }
       .solicitacoes-lista {
         margin-top: 12px;
         text-align: left;
       }
       .solicitacao-bloco {
-        background: #444;
+        background: #f1f1f1;
         border-radius: 8px;
         margin-bottom: 18px;
         padding: 16px 12px;
-        box-shadow: 0 2px 8px #1118;
+        box-shadow: 0 2px 8px #1112;
         font-size: 1.1em;
+        border-left: 4px solid #388e3c;
+        transition: box-shadow 0.15s;
       }
       .solicitacao-bloco.admin-link {
         cursor: pointer;
-        transition: background 0.18s;
+        transition: background 0.18s, box-shadow 0.18s;
       }
       .solicitacao-bloco.admin-link:hover {
-        background: #555;
+        background: #e0f2f1;
+        box-shadow: 0 4px 16px #388e3c33;
       }
       .solicitacao-barbeiro {
-        color: #b2ff59;
+        color: #ff9800;
         font-weight: bold;
         margin-bottom: 8px;
         font-size: 1.1em;
       }
       .solicitacao-resumo {
         font-size: 0.97em;
-        color: #b2ff59;
+        color: #388e3c;
         margin-top: 4px;
         margin-bottom: 8px;
         line-height: 1.4;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
       }
       .solicitacao-resumo div {
         margin-bottom: 2px;
+        display: block;
       }
       .solicitacao-item {
-        border-top: 1px solid #444a;
+        border-top: 1px solid #388e3c22;
         margin-top: 8px;
         padding-top: 8px;
         padding-bottom: 4px;
         cursor: pointer;
         transition: background 0.2s;
+        background: #fff;
+        border-radius: 6px;
       }
       .solicitacao-item:hover {
-        background: #555;
+        background: #e0f2f1;
       }
       .solicitacao-servicos {
         margin: 4px 0 8px 0;
@@ -174,44 +250,70 @@
         margin-bottom: 0;
       }
       .servico-icone {
-        color: #00c853;
+        color: #388e3c;
         font-size: 1.1em;
       }
       .servico-nome {
-        color: #fff;
+        color: #222;
         font-weight: bold;
       }
       .servico-preco {
-        color: #b2ff59;
+        color: #ff9800;
         font-size: 1em;
         font-weight: bold;
         margin-left: 8px;
       }
       .solicitacao-total {
-        color: #fff;
+        color: #222;
         font-weight: bold;
         margin-top: 3px;
         margin-bottom: 1px;
         font-size: 1.07em;
       }
       .solicitacao-status {
-        color: #00c853;
+        color: #388e3c;
         font-size: 1em;
         font-weight: bold;
       }
       .solicitacao-pendente {
-        color: #ffeb3b;
+        color: #ffb300;
+        background: #fffbe7;
+        border-radius: 4px;
+        padding: 2px 8px;
+        display: inline-block;
+        font-weight: bold;
+        margin-top: 4px;
       }
       .solicitacao-cancelado {
         color: #ff5252;
       }
       .solicitacao-concluido {
-        color: #00c853;
+        color: #388e3c;
       }
       .solicitacao-data {
-        color: #aaa;
+        color: #888;
         font-size: 0.97em;
         margin-bottom: 2px;
+      }
+      .filtro-multiselect {
+        min-width: 130px;
+        padding: 7px 10px;
+        border-radius: 6px;
+        border: 1.5px solid #ff9800;
+        font-size: 1em;
+        background: #fff;
+        color: #ff9800;
+        outline: none;
+        box-sizing: border-box;
+        cursor: pointer;
+        margin-bottom: 2px;
+        transition: border 0.2s, background 0.2s, color 0.2s;
+        height: 36px;
+      }
+      .filtro-multiselect:focus {
+        border: 2px solid #388e3c;
+        background: #f7fff7;
+        color: #388e3c;
       }
       .daterangepicker {
         color: #222;
@@ -222,11 +324,11 @@
       }
       .daterangepicker td.active,
       .daterangepicker td.active:hover {
-        background-color: #00c853 !important;
+        background-color: #388e3c !important;
         color: #fff !important;
       }
       .daterangepicker .drp-buttons .btn {
-        background: #007acc;
+        background: #ff9800;
         color: #fff;
         border-radius: 5px;
         border: none;
@@ -234,7 +336,6 @@
         font-size: 1em;
         margin: 0 2px;
       }
-      /* Modal */
       .modal {
         display: none;
         position: fixed;
@@ -248,208 +349,155 @@
         align-items: center;
       }
       .modal-content {
-        background: #181818;
+        background: #fff;
         padding: 28px 18px 18px 18px;
         border-radius: 16px;
         text-align: center;
         min-width: 300px;
-        box-shadow: 0 0 15px #111;
+        box-shadow: 0 0 15px #1112;
         position: relative;
         width: 94vw;
         max-width: 340px;
-      }
-      .modal-title {
-        color: #00c853;
-        font-size: 1.3em;
-        margin-bottom: 18px;
-        margin-top: 0;
-        font-weight: bold;
-        letter-spacing: 0.5px;
-      }
-      .modal-content label {
-        display: block;
-        color: #00ff6a;
-        text-align: left;
-        margin-top: 12px;
-        margin-bottom: 3px;
-        font-size: 1em;
-        font-weight: bold;
-      }
-      .modal-status-label {
-        color: #00ff6a;
-        text-align: left;
-        font-size: 1em;
-        font-weight: bold;
-        margin-bottom: 2px;
-      }
-      .modal-status-value,
-      .modal-status-select {
-        background: #181818;
-        color: #00ff6a;
-        border-radius: 6px;
-        padding: 8px 0;
-        margin-bottom: 14px;
-        font-size: 1.13em;
-        font-weight: bold;
-        letter-spacing: 0.5px;
-        border: none;
-        width: 100%;
-        text-align: center;
-      }
-      .modal-status-select {
-        color: #00ff6a;
-        background: #222;
-        font-size: 1em;
-        font-weight: bold;
-        border: 2px solid #00ff6a;
-        outline: none;
-        margin-bottom: 14px;
-        padding: 8px 0;
-        text-align: center;
-      }
-      .servico-edit-lista {
-        margin-bottom: 12px;
-      }
-      .servico-edit-item {
-        background: #222;
-        border-radius: 10px;
-        padding: 14px 14px 10px 14px;
-        margin-bottom: 15px;
+        color: #222;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        box-shadow: 0 1px 0 #333 inset;
-        position: relative;
-      }
-      .servico-edit-nome {
-        color: #00ff6a;
-        font-weight: bold;
-        font-size: 1.12em;
-        margin-bottom: 2px;
-        text-align: left;
-        letter-spacing: 0.2px;
-      }
-      .servico-edit-preco {
-        color: #fff;
-        font-size: 1.04em;
-        margin-bottom: 10px;
-        text-align: left;
-      }
-      .remover-servico-btn {
-        background: #ff5252;
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        padding: 10px 0;
-        font-size: 1.07em;
-        cursor: pointer;
-        font-weight: bold;
-        width: 100%;
-        margin: 0;
-        transition: background 0.18s;
-        display: block;
-      }
-      .remover-servico-btn:hover {
-        background: #c62828;
-      }
-      .adicionar-servico-bloco {
-        background: #111;
-        border-radius: 0 0 8px 8px;
-        padding: 16px 8px 12px 8px;
-        margin-bottom: 14px;
-        border-bottom: 3px solid #00ff6a;
-        box-shadow: 0 2px 0 #00ff6a inset;
-        text-align: left;
-      }
-      .adicionar-servico-label {
-        color: #00ff6a;
-        font-size: 1.17em;
-        font-weight: bold;
-        margin-bottom: 7px;
-        margin-left: 2px;
-        letter-spacing: 0.2px;
-      }
-      .adicionar-servico-select {
-        width: 100%;
-        background: #fff;
-        color: #111;
-        border: 1.5px solid #222;
-        border-radius: 6px;
-        padding: 8px 7px;
-        font-size: 1.07em;
-        transition: border 0.18s;
-        outline: none;
-        margin-bottom: 0;
-      }
-      .adicionar-servico-select:focus {
-        border: 1.5px solid #00ff6a;
-      }
-      .add-servico-btn {
-        background: #00ff6a;
-        color: #222;
-        border: none;
-        border-radius: 7px;
-        padding: 12px 0;
-        font-size: 1.12em;
-        cursor: pointer;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-weight: bold;
-        width: 100%;
-        transition: background 0.18s, color 0.18s;
-      }
-      .add-servico-btn:hover {
-        background: #009e46;
-        color: #fff;
-      }
-      .salvar-btn {
-        background: #fff;
-        color: #222;
-        border: none;
-        border-radius: 7px;
-        padding: 12px 0;
-        font-size: 1.12em;
-        cursor: pointer;
-        margin-top: 6px;
-        font-weight: bold;
-        width: 100%;
-        transition: background 0.18s, color 0.18s;
-        box-shadow: 0 1px 0 #333 inset;
-      }
-      .salvar-btn:hover {
-        background: #00c853;
-        color: #fff;
       }
       .close-modal {
         position: absolute;
         right: 10px;
         top: 10px;
-        color: #fff;
-        background: none;
-        border: none;
+        color: #ff9800;
+        background: #fff;
+        border: 1.5px solid #ff9800;
         cursor: pointer;
-        font-size: 1.3em;
-        padding: 0 8px;
+        font-size: 1em;
+        padding: 0;
         line-height: 1;
         border-radius: 50%;
-        height: 32px;
-        width: 32px;
+        height: 22px;
+        width: 22px;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: color 0.2s, background 0.2s;
+        transition: color 0.2s, background 0.2s, border 0.2s;
+        box-shadow: 0 1px 2px #1112;
       }
       .close-modal:hover {
-        color: #00c853;
-        background: rgba(0, 0, 0, 0.08);
+        color: #fff;
+        background: #ff9800;
+        border: 1.5px solid #388e3c;
       }
-      .modal-msg {
-        margin-top: 8px;
+      /* Modal visualização barbeiro */
+      .modal-content.barbeiro-view {
+        align-items: flex-start;
+        padding: 24px 16px 16px 16px;
+      }
+      .modal-content.barbeiro-view .modal-title {
+        color: #388e3c;
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 12px;
+        width: 100%;
+        text-align: left;
+      }
+      .modal-content.barbeiro-view .modal-status-label {
+        color: #388e3c;
+        font-weight: bold;
+        margin-bottom: 2px;
         font-size: 1em;
-        color: #b2ff59;
-        min-height: 18px;
+        text-align: left;
+        width: 100%;
       }
-      @media (max-width: 500px) {
+      .modal-content.barbeiro-view .modal-status-value {
+        color: #222;
+        font-weight: bold;
+        margin-bottom: 8px;
+        font-size: 1em;
+        text-align: left;
+        width: 100%;
+      }
+      .modal-content.barbeiro-view .servico-edit-lista {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .modal-content.barbeiro-view .servico-edit-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 0;
+        border-bottom: 1px solid #eee;
+        width: 100%;
+        font-size: 1.05em;
+      }
+      .modal-content.barbeiro-view .servico-edit-nome {
+        color: #222;
+        font-weight: bold;
+      }
+      .modal-content.barbeiro-view .servico-edit-preco {
+        color: #ff9800;
+        font-weight: bold;
+      }
+      .modal-content.barbeiro-view .modal-total-label {
+        color: #388e3c;
+        font-weight: bold;
+        margin-top: 10px;
+        width: 100%;
+        text-align: left;
+        font-size: 1.08em;
+      }
+      .modal-content.barbeiro-view .modal-total-value {
+        color: #222;
+        font-weight: bold;
+        font-size: 1.15em;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: left;
+      }
+      .modal-content.barbeiro-view .modal-pagamentos-label {
+        color: #388e3c;
+        font-weight: bold;
+        margin-top: 10px;
+        width: 100%;
+        text-align: left;
+        font-size: 1.08em;
+      }
+      .modal-content.barbeiro-view .modal-pagamentos-lista {
+        width: 100%;
+        margin-top: 2px;
+        margin-bottom: 10px;
+        text-align: left;
+      }
+      .modal-content.barbeiro-view .modal-pagamento-item {
+        font-size: 1em;
+        color: #222;
+        margin-bottom: 2px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .modal-content.barbeiro-view .modal-pagamento-forma {
+        color: #222;
+        font-weight: bold;
+      }
+      .modal-content.barbeiro-view .modal-pagamento-valor {
+        color: #ff9800;
+        font-weight: bold;
+      }
+      .modal-content.barbeiro-view .modal-data-label {
+        color: #888;
+        font-size: 0.97em;
+        margin-top: 12px;
+        width: 100%;
+        text-align: left;
+      }
+      .modal-content.barbeiro-view .modal-data-value {
+        color: #222;
+        font-size: 0.97em;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 6px;
+      }
+      @media (max-width: 700px) {
         .container {
           padding: 18px 2vw;
           width: 99vw;
@@ -476,7 +524,8 @@
         }
         .filtro-select,
         .filtro-input,
-        #rangeSemana {
+        #rangeSemana,
+        .filtro-multiselect {
           width: 100%;
         }
       }
@@ -502,6 +551,16 @@
             <option value="concluido">Concluído</option>
             <option value="cancelado">Cancelado</option>
           </select>
+          <label class="filtro-label-tipo" for="filtroTipoPagamento"
+            >Tipo de Pagamento:</label
+          >
+          <select id="filtroTipoPagamento" class="filtro-multiselect" multiple>
+            <option value="Débito">Débito</option>
+            <option value="Crédito">Crédito</option>
+            <option value="Pix">Pix</option>
+            <option value="Dinheiro">Dinheiro</option>
+            <option value="Fiado">Fiado</option>
+          </select>
         </div>
         <div class="filtro-linha">
           <label class="filtro-label" for="tipoPeriodo">Período:</label>
@@ -519,14 +578,14 @@
         </div>
       </div>
       <div id="periodoSelecionado"></div>
+      <div id="totaisBarbeiros"></div>
       <div class="solicitacoes-lista" id="solicitacoes-lista">
-        <div style="color: #fff; text-align: center">Carregando...</div>
+        <div style="color: #222; text-align: center">Carregando...</div>
       </div>
     </div>
-
     <!-- Modal para edição/visualização -->
     <div class="modal" id="modalSolicitacao">
-      <div class="modal-content">
+      <div class="modal-content" id="modalSolicitacaoContent">
         <button
           class="close-modal"
           onclick="fecharModalSolicitacao()"
@@ -538,6 +597,9 @@
         <div class="modal-status-label">Status</div>
         <div id="statusSolicitacaoArea"></div>
         <div id="servicosEdit" class="servico-edit-lista"></div>
+        <div id="modalTotaisArea"></div>
+        <div id="modalPagamentosArea"></div>
+        <div id="modalDataArea"></div>
         <button
           class="salvar-btn"
           id="btnSalvarSolicitacao"
@@ -548,8 +610,14 @@
         <div class="modal-msg" id="modalSolicitacaoMsg"></div>
       </div>
     </div>
-
     <script>
+      function getHojeCuiabaISO() {
+        const now = new Date();
+        const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+        const cuiaba = new Date(utc - 4 * 60 * 60000);
+        return cuiaba.toISOString().slice(0, 10);
+      }
+
       const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
       if (!usuarioLogado) window.location.href = "index.html";
 
@@ -588,9 +656,7 @@
         const campo = document.getElementById("campoPeriodo");
         campo.innerHTML = "";
         if (tipo === "dia") {
-          campo.innerHTML = `<input type="date" id="inputData" class="filtro-input" value="${new Date()
-            .toISOString()
-            .slice(0, 10)}" onchange="carregarSolicitacoes()">`;
+          campo.innerHTML = `<input type="date" id="inputData" class="filtro-input" value="${getHojeCuiabaISO()}" onchange="carregarSolicitacoes()">`;
         } else if (tipo === "semana") {
           campo.innerHTML = `<input type="text" id="rangeSemana" class="filtro-input" readonly style="width: 170px;" />`;
           setTimeout(() => {
@@ -751,12 +817,44 @@
         );
       }
 
+      function filtrarPorTipoPagamento(lista, tipos) {
+        if (!tipos || !tipos.length) return lista;
+        return lista.filter((s) => {
+          if (!Array.isArray(s.pagamentos)) return false;
+          return tipos.some((tipo) =>
+            s.pagamentos.some((p) => p.forma === tipo)
+          );
+        });
+      }
+
+      function calcularTotais(lista) {
+        let totalGeral = 0,
+          totalConcluido = 0,
+          totalPendente = 0;
+        lista.forEach((s) => {
+          const statusSolic = (s.status || "").toLowerCase();
+          if (statusSolic === "cancelado") return;
+          totalGeral += Number(s.valorTotal || 0);
+          if (statusSolic === "concluido")
+            totalConcluido += Number(s.valorTotal || 0);
+          if (statusSolic === "pendente")
+            totalPendente += Number(s.valorTotal || 0);
+        });
+        return { totalGeral, totalConcluido, totalPendente };
+      }
+
       async function carregarSolicitacoes() {
         mostrarPeriodoSelecionado();
         const listaDiv = document.getElementById("solicitacoes-lista");
+        const totaisDiv = document.getElementById("totaisBarbeiros");
         listaDiv.innerHTML =
-          '<div style="color:#fff;text-align:center;">Carregando...</div>';
+          '<div style="color:#222;text-align:center;">Carregando...</div>';
+        totaisDiv.innerHTML = "";
         const status = document.getElementById("filtroStatus").value;
+        const tipoPagamentoSel = document.getElementById("filtroTipoPagamento");
+        const tiposPagamento = Array.from(tipoPagamentoSel.selectedOptions).map(
+          (opt) => opt.value
+        );
 
         try {
           if (
@@ -773,49 +871,65 @@
               if (lista.length) solicitacoesPorBarbeiro[barbeiro] = lista;
             });
             let html = "";
+            let totalGeralTodos = 0,
+              totalConcluidoTodos = 0,
+              totalPendenteTodos = 0;
             const barbeiros = Object.keys(solicitacoesPorBarbeiro);
             if (barbeiros.length === 0) {
               html =
-                '<div style="color:#fff;text-align:center;">Nenhuma solicitação encontrada.</div>';
+                '<div style="color:#222;text-align:center;">Nenhuma solicitação encontrada.</div>';
             } else {
               barbeiros.forEach((barbeiro) => {
                 let listaSolic = filtrarPorData(
                   solicitacoesPorBarbeiro[barbeiro]
                 );
                 listaSolic = filtrarPorStatus(listaSolic, status);
-                // AJUSTE: Ignorar cancelados nas somas
-                let totalGeral = 0,
-                  totalConcluido = 0,
-                  totalPendente = 0;
-                listaSolic.forEach((s) => {
-                  const statusSolic = (s.status || "").toLowerCase();
-                  if (statusSolic === "cancelado") return;
-                  totalGeral += Number(s.valorTotal || 0);
-                  if (statusSolic === "concluido")
-                    totalConcluido += Number(s.valorTotal || 0);
-                  if (statusSolic === "pendente")
-                    totalPendente += Number(s.valorTotal || 0);
-                });
+                listaSolic = filtrarPorTipoPagamento(
+                  listaSolic,
+                  tiposPagamento
+                );
+                const { totalGeral, totalConcluido, totalPendente } =
+                  calcularTotais(listaSolic);
+                totalGeralTodos += totalGeral;
+                totalConcluidoTodos += totalConcluido;
+                totalPendenteTodos += totalPendente;
                 html += `<div class="solicitacao-bloco admin-link" onclick="window.location.href='detalhes_solicitacoes.html?barbeiro=${encodeURIComponent(
                   barbeiro
                 )}'">
                 <div class="solicitacao-barbeiro">${barbeiro}
                   <div class="solicitacao-resumo">
-                    <div>Valor Total: <b>R$ ${totalGeral.toFixed(2)}</b></div>
-                    <div>Concluído: <b style="color:#00c853;">R$ ${totalConcluido.toFixed(
+                    <div><span class="total-label">Valor Total:</span> <b>R$ ${totalGeral.toFixed(
                       2
                     )}</b></div>
-                    <div>Pendente: <b style="color:#ffeb3b;">R$ ${totalPendente.toFixed(
+                    <div><span class="total-concluido">Concluído:</span> <b>R$ ${totalConcluido.toFixed(
+                      2
+                    )}</b></div>
+                    <div><span class="total-pendente">Pendente:</span> <b>R$ ${totalPendente.toFixed(
                       2
                     )}</b></div>
                   </div>
                 </div>
               </div>`;
               });
+              if (barbeiros.length > 1) {
+                totaisDiv.innerHTML = `
+                <div>
+                  <span class="total-label">Total de Todos:</span>
+                  <span class="total-geral">R$ ${totalGeralTodos.toFixed(
+                    2
+                  )}</span>
+                  <span class="total-concluido">Concluído: R$ ${totalConcluidoTodos.toFixed(
+                    2
+                  )}</span>
+                  <span class="total-pendente">Pendente: R$ ${totalPendenteTodos.toFixed(
+                    2
+                  )}</span>
+                </div>
+              `;
+              }
             }
             listaDiv.innerHTML = html;
           } else {
-            // Barbeiro: só pode editar se status for pendente, senão só visualiza
             const meuDocId = nomeParaId(usuarioLogado.nome);
             const doc = await db.collection("solicitacoes").doc(meuDocId).get();
             if (
@@ -824,35 +938,43 @@
               doc.data().lista.length === 0
             ) {
               listaDiv.innerHTML =
-                '<div style="color:#fff;text-align:center;">Nenhuma solicitação encontrada.</div>';
+                '<div style="color:#222;text-align:center;">Nenhuma solicitação encontrada.</div>';
+              totaisDiv.innerHTML = "";
               return;
             }
             listaSolicitacoes = doc.data().lista;
             let listaFiltrada = filtrarPorData(listaSolicitacoes);
             listaFiltrada = filtrarPorStatus(listaFiltrada, status);
-            // AJUSTE: Ignorar cancelados nas somas
-            let totalGeral = 0,
-              totalConcluido = 0,
-              totalPendente = 0;
-            listaFiltrada.forEach((s) => {
-              const statusSolic = (s.status || "").toLowerCase();
-              if (statusSolic === "cancelado") return;
-              totalGeral += Number(s.valorTotal || 0);
-              if (statusSolic === "concluido")
-                totalConcluido += Number(s.valorTotal || 0);
-              if (statusSolic === "pendente")
-                totalPendente += Number(s.valorTotal || 0);
-            });
+            listaFiltrada = filtrarPorTipoPagamento(
+              listaFiltrada,
+              tiposPagamento
+            );
+            const { totalGeral, totalConcluido, totalPendente } =
+              calcularTotais(listaFiltrada);
+            totaisDiv.innerHTML = `
+            <div>
+              <span class="total-label">Total:</span>
+              <span class="total-geral">R$ ${totalGeral.toFixed(2)}</span>
+              <span class="total-concluido">Concluído: R$ ${totalConcluido.toFixed(
+                2
+              )}</span>
+              <span class="total-pendente">Pendente: R$ ${totalPendente.toFixed(
+                2
+              )}</span>
+            </div>
+          `;
             let html = `<div class="solicitacao-bloco">
             <div class="solicitacao-barbeiro"><i class="fa fa-user"></i> ${
               usuarioLogado.nome
             }
               <div class="solicitacao-resumo">
-                <div>Valor Total: <b>R$ ${totalGeral.toFixed(2)}</b></div>
-                <div>Concluído: <b style="color:#00c853;">R$ ${totalConcluido.toFixed(
+                <div><span class="total-label">Valor Total:</span> <b>R$ ${totalGeral.toFixed(
                   2
                 )}</b></div>
-                <div>Pendente: <b style="color:#ffeb3b;">R$ ${totalPendente.toFixed(
+                <div><span class="total-concluido">Concluído:</span> <b>R$ ${totalConcluido.toFixed(
+                  2
+                )}</b></div>
+                <div><span class="total-pendente">Pendente:</span> <b>R$ ${totalPendente.toFixed(
                   2
                 )}</b></div>
               </div>
@@ -907,6 +1029,7 @@
           }
         } catch (error) {
           listaDiv.innerHTML = `<div style="color:#ff5252;">Erro ao carregar solicitações: ${error.message}</div>`;
+          totaisDiv.innerHTML = "";
         }
       }
 
@@ -914,6 +1037,8 @@
         const s = listaSolicitacoes[idx];
         solicitacaoEditIdx = idx;
         const statusLower = (s.status || "pendente").toLowerCase();
+        const modal = document.getElementById("modalSolicitacao");
+        const modalContent = document.getElementById("modalSolicitacaoContent");
         document.getElementById("modalSolicitacaoTitulo").textContent =
           "Solicitação";
         document.getElementById(
@@ -924,10 +1049,50 @@
             : "Pendente"
         }</div>`;
         document.getElementById("modalSolicitacaoMsg").textContent = "";
-        renderServicosEdit(s.servicos || [], statusLower === "pendente");
-        document.getElementById("btnSalvarSolicitacao").style.display =
-          statusLower === "pendente" ? "block" : "none";
-        document.getElementById("modalSolicitacao").style.display = "flex";
+
+        // Visualização especial para barbeiro (apenas visualizar, layout melhorado)
+        if (usuarioLogado.categoria === "Barbeiro") {
+          modalContent.classList.add("barbeiro-view");
+          renderServicosEditBarbeiro(s.servicos || []);
+          document.getElementById("btnSalvarSolicitacao").style.display =
+            "none";
+          document.getElementById("modalTotaisArea").innerHTML = `
+          <div class="modal-total-label">Valor Total:</div>
+          <div class="modal-total-value">R$ ${s.valorTotal}</div>
+        `;
+          document.getElementById("modalPagamentosArea").innerHTML = `
+          <div class="modal-pagamentos-label">Pagamentos:</div>
+          <div class="modal-pagamentos-lista">
+            ${
+              Array.isArray(s.pagamentos)
+                ? s.pagamentos
+                    .map(
+                      (p) => `
+                  <div class="modal-pagamento-item">
+                    <span class="modal-pagamento-forma">${p.forma}</span>
+                    <span class="modal-pagamento-valor">R$ ${p.valor}</span>
+                  </div>
+                `
+                    )
+                    .join("")
+                : ""
+            }
+          </div>
+        `;
+          document.getElementById("modalDataArea").innerHTML = `
+          <div class="modal-data-label">Data:</div>
+          <div class="modal-data-value">${formatarData(s.dataCriacao)}</div>
+        `;
+        } else {
+          modalContent.classList.remove("barbeiro-view");
+          renderServicosEdit(s.servicos || [], statusLower === "pendente");
+          document.getElementById("btnSalvarSolicitacao").style.display =
+            statusLower === "pendente" ? "block" : "none";
+          document.getElementById("modalTotaisArea").innerHTML = "";
+          document.getElementById("modalPagamentosArea").innerHTML = "";
+          document.getElementById("modalDataArea").innerHTML = "";
+        }
+        modal.style.display = "flex";
       }
 
       function fecharModalSolicitacao() {
@@ -939,16 +1104,31 @@
         let html = "";
         servicos.forEach((sv, idx) => {
           html += `
-          <div class="servico-edit-item" data-idx="${idx}">
-            <div class="servico-edit-nome">${sv.nome}</div>
-            <div class="servico-edit-preco">R$ ${sv.preco}</div>
-            ${
-              podeEditar
-                ? `<button type="button" class="remover-servico-btn" onclick="removerServicoEdit(${idx});event.stopPropagation();">Remover</button>`
-                : ""
-            }
-          </div>
-        `;
+        <div class="servico-edit-item" data-idx="${idx}">
+          <div class="servico-edit-nome">${sv.nome}</div>
+          <div class="servico-edit-preco">R$ ${sv.preco}</div>
+          ${
+            podeEditar
+              ? `<button type="button" class="remover-servico-btn" onclick="removerServicoEdit(${idx});event.stopPropagation();">Remover</button>`
+              : ""
+          }
+        </div>
+      `;
+        });
+        div.innerHTML = html;
+      }
+
+      // Versão visual para barbeiro (apenas visualização)
+      function renderServicosEditBarbeiro(servicos) {
+        const div = document.getElementById("servicosEdit");
+        let html = "";
+        servicos.forEach((sv, idx) => {
+          html += `
+        <div class="servico-edit-item" data-idx="${idx}">
+          <div class="servico-edit-nome">${sv.nome}</div>
+          <div class="servico-edit-preco">R$ ${sv.preco}</div>
+        </div>
+      `;
         });
         div.innerHTML = html;
       }
@@ -964,7 +1144,6 @@
       function salvarSolicitacaoEditada() {
         if (solicitacaoEditIdx === null) return;
         const s = listaSolicitacoes[solicitacaoEditIdx];
-        // Valor total recalculado
         s.valorTotal = Array.isArray(s.servicos)
           ? s.servicos.reduce((acc, sv) => acc + sv.preco, 0)
           : 0;
@@ -976,7 +1155,7 @@
             document.getElementById("modalSolicitacaoMsg").textContent =
               "Solicitação atualizada!";
             document.getElementById("modalSolicitacaoMsg").style.color =
-              "#b2ff59";
+              "#388e3c";
             setTimeout(() => {
               fecharModalSolicitacao();
               carregarSolicitacoes();
@@ -994,6 +1173,7 @@
       $(function () {
         mostrarCampoPeriodo();
         $("#filtroStatus").on("change", carregarSolicitacoes);
+        $("#filtroTipoPagamento").on("change", carregarSolicitacoes);
         setTimeout(carregarSolicitacoes, 100);
       });
 
