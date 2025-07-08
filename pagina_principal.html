@@ -8,8 +8,8 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #222;
-      color: #fff;
+      background: #fff;
+      color: #222;
       margin: 0;
       padding: 0;
       display: flex;
@@ -31,8 +31,8 @@
       left: 30px;
       top: 50%;
       transform: translateY(-50%);
-      background: #444;
-      border: none;
+      background: #fff;
+      border: 2px solid #ff9800;
       border-radius: 50%;
       width: 44px;
       height: 44px;
@@ -40,19 +40,19 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 2px 8px #1118;
+      box-shadow: 0 2px 8px #1112;
       transition: background 0.2s;
       outline: none;
       z-index: 2;
     }
-    .menu-btn:hover { background: #222; }
-    .menu-btn i { color: #fff; font-size: 1.5em; }
+    .menu-btn:hover { background: #ff9800; }
+    .menu-btn i { color: #388e3c; font-size: 1.5em; }
     .perfil-btn {
       position: absolute;
       right: 30px;
       top: 50%;
       transform: translateY(-50%);
-      background: #00c853;
+      background: #ff9800;
       border: none;
       border-radius: 50%;
       width: 48px;
@@ -61,87 +61,97 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 2px 8px #1118;
+      box-shadow: 0 2px 8px #1112;
       transition: background 0.2s;
       outline: none;
     }
-    .perfil-btn:hover { background: #009e46; }
+    .perfil-btn:hover { background: #388e3c; }
     .perfil-btn i { color: #fff; font-size: 1.7em; }
     .titulo-barbearia {
-      color: #00c853;
+      color: #388e3c;
       letter-spacing: 2px;
       font-size: 2em;
       font-family: "Arial Black", Arial, sans-serif;
-      text-shadow: 1px 1px 6px #111;
+      text-shadow: 1px 1px 6px #ccc;
       margin: 0 auto;
       text-align: center;
       word-break: break-word;
     }
-    .bloco-barbeiros {
-      background: #444;
+    .bloco-barbeiros, .bloco-cliente {
+      background: #fff;
       border-radius: 10px;
       margin: 0 0 22px 0;
       padding: 18px 15px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      box-shadow: 0 2px 8px #1118;
+      box-shadow: 0 2px 8px #1112;
       width: 350px;
       max-width: 95vw;
+      border: 1.5px solid #388e3c;
     }
-    .bloco-barbeiros label {
+    .bloco-barbeiros label,
+    .bloco-cliente label {
       font-size: 1.2em;
-      color: #00c853;
+      color: #388e3c;
       font-weight: bold;
       margin-bottom: 10px;
     }
-    .bloco-barbeiros select {
+    .bloco-barbeiros select,
+    .bloco-cliente input[type="text"] {
       width: 100%;
       padding: 10px;
       border-radius: 6px;
-      border: none;
+      border: 1.5px solid #ff9800;
       font-size: 1.1em;
-      background: #222;
-      color: #fff;
+      background: #fff;
+      color: #222;
       outline: none;
+      margin-bottom: 18px;
     }
     .container {
-      background: #333;
-      padding: 40px 30px;
+      background: #fff;
+      padding: 40px 30px 18px 30px;
       border-radius: 10px;
       margin-top: 20px;
       text-align: center;
       width: 350px;
-      box-shadow: 0 0 10px #111;
+      box-shadow: 0 0 10px #1112;
       max-width: 95vw;
+      border: 1.5px solid #388e3c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
     }
     h1 {
-      color: #00c853;
+      color: #388e3c;
       margin-bottom: 30px;
       font-size: 1.5em;
     }
     .servico {
-      background: #444;
+      background: #fff;
       border-radius: 10px;
       margin: 18px 0;
       padding: 18px 15px;
       display: flex;
       align-items: center;
       gap: 18px;
-      box-shadow: 0 2px 8px #1118;
+      box-shadow: 0 2px 8px #1112;
       transition: background 0.2s;
       cursor: pointer;
       position: relative;
+      border: 1.5px solid #388e3c;
     }
     .servico.selected {
-      background: #00c85344;
-      border: 2px solid #00c853;
+      background: #e8f5e9;
+      border: 2px solid #ff9800;
     }
     .icone-servico {
       font-size: 2.5em;
       width: 56px;
       text-align: center;
-      color: #00c853;
+      color: #388e3c;
       flex-shrink: 0;
     }
     .info-servico {
@@ -152,27 +162,28 @@
       font-size: 1.3em;
       font-weight: bold;
       margin-bottom: 5px;
+      color: #388e3c;
     }
     .preco-servico {
       font-size: 1.1em;
-      color: #b2ff59;
+      color: #ff9800;
     }
     .checkbox-custom {
       width: 26px;
       height: 26px;
-      border: 2px solid #00c853;
+      border: 2px solid #388e3c;
       border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #222;
+      background: #fff;
       cursor: pointer;
       margin-left: 10px;
       transition: background 0.2s;
       flex-shrink: 0;
     }
     .checkbox-custom.checked {
-      background: #00c853;
+      background: #388e3c;
     }
     .checkbox-custom i {
       color: #fff;
@@ -188,10 +199,11 @@
       gap: 15px;
       margin-top: 30px;
       flex-wrap: wrap;
+      width: 100%;
     }
     button:not(.perfil-btn):not(.menu-btn) {
       padding: 10px 22px;
-      background: #007acc;
+      background: #ff9800;
       color: white;
       border: none;
       border-radius: 5px;
@@ -199,21 +211,106 @@
       font-size: 1em;
       transition: background 0.2s;
       margin-bottom: 8px;
+      font-weight: bold;
     }
     button:not(.perfil-btn):not(.menu-btn):hover {
-      background: #005fa3;
+      background: #388e3c;
+      color: #fff;
     }
     #mensagem {
       margin-top: 20px;
-      color: #fff;
+      color: #388e3c;
       font-size: 1.1em;
       word-break: break-word;
     }
-    /* Modal perfil */
-    .modal {
+    .bloco-pagamento {
+      background: #fff;
+      border-radius: 10px;
+      margin: 0 0 18px 0;
+      padding: 18px 15px 12px 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      box-shadow: 0 2px 8px #1112;
+      width: 100%;
+      border: 1.5px solid #ff9800;
+      position: relative;
+    }
+    .bloco-pagamento label {
+      font-size: 1.2em;
+      color: #ff9800;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .bloco-pagamento select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1.5px solid #388e3c;
+      font-size: 1.1em;
+      background: #fff;
+      color: #222;
+      outline: none;
+      margin-bottom: 10px;
+    }
+    .valor-pagamento {
+      width: 120px;
+      padding: 6px;
+      margin-left: 8px;
+      border-radius: 4px;
+      border: 1.5px solid #ff9800;
+      background: #fff;
+      color: #222;
+    }
+    .valor-pagamento-label {
+      color: #388e3c;
+      font-weight: bold;
+    }
+    #valor-total {
+      margin-top: 16px;
+      font-size: 1.2em;
+      color: #ff9800;
+      font-weight: bold;
+      text-align: right;
+      width: 100%;
+    }
+    @media (max-width: 500px) {
+      .bloco-barbeiros,
+      .bloco-cliente,
+      .bloco-pagamento,
+      .container {
+        width: 98vw;
+        max-width: 99vw;
+        padding: 12px 2vw;
+      }
+      .bloco-barbeiros label,
+      .bloco-cliente label,
+      .bloco-pagamento label {
+        font-size: 1em;
+      }
+      .bloco-barbeiros select,
+      .bloco-pagamento select,
+      .bloco-cliente input[type="text"] {
+        font-size: 1em;
+      }
+      .modal-content,
+      .menu-modal-content {
+        padding: 16px 4vw 12px 4vw;
+        min-width: unset;
+        max-width: 99vw;
+      }
+    }
+    .bloco-cliente input[type="text"] {
+      width: 100%;
+      box-sizing: border-box;
+      min-width: 0;
+      max-width: 100%;
+    }
+    .modal,
+    .menu-modal {
       display: none;
       position: fixed;
-      z-index: 10;
+      z-index: 9999;
       left: 0;
       top: 0;
       width: 100vw;
@@ -222,128 +319,71 @@
       justify-content: center;
       align-items: center;
     }
-    .modal-content {
-      background: #333;
+    .modal-content,
+    .menu-modal-content {
+      background: #fff;
       padding: 30px 25px 20px 25px;
       border-radius: 10px;
       text-align: center;
       min-width: 300px;
-      box-shadow: 0 0 15px #111;
-      position: relative;
+      box-shadow: 0 0 15px #1112;
       width: 90vw;
       max-width: 340px;
       overflow: hidden;
-    }
-    .close-modal {
-      position: absolute;
-      left: 50%;
-      top: 10px;
-      transform: translateX(-50%);
-      color: #fff;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 1.15em;
-      padding: 0 8px;
-      line-height: 1;
-      border-radius: 50%;
-      height: 32px;
-      width: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: color 0.2s, background 0.2s;
-    }
-    .close-modal:hover {
-      color: #00c853;
-      background: rgba(0, 0, 0, 0.08);
-    }
-    .modal-content h3 {
-      color: #00c853;
-      margin: 32px 0 15px 0;
-      font-size: 1.15em;
-      padding-top: 4px;
-      font-weight: bold;
-    }
-    .perfil-info {
-      margin-bottom: 18px;
-      text-align: left;
-      font-size: 1.07em;
-    }
-    .perfil-info span {
-      color: #b2ff59;
-      font-weight: bold;
-    }
-    .modal-content input[type="password"] {
-      width: 90%;
-      padding: 10px;
-      margin: 10px 0 18px 0;
-      border-radius: 6px;
-      border: none;
-      font-size: 1em;
-      background: #222;
-      color: #fff;
-      outline: none;
-    }
-    .modal-content button {
-      width: 100%;
-      margin-top: 0;
-    }
-    #perfil-mensagem {
-      margin-top: 10px;
-      font-size: 1em;
-      word-break: break-word;
-    }
-    /* Menu Lateral */
-    .menu-modal {
-      display: none;
-      position: fixed;
-      z-index: 20;
-      left: 0;
+      border: 1.5px solid #388e3c;
+      position: relative;
+      margin: auto;
       top: 0;
-      height: 100vh;
-      width: 240px;
-      background: #222;
-      box-shadow: 4px 0 16px #000a;
-      padding: 30px 18px 18px 18px;
-      border-radius: 0 18px 18px 0;
-      transition: left 0.2s;
-    }
-    .menu-modal .close-menu {
-      position: absolute;
-      left: 7px;
-      top: 7px;
-      font-size: 1.1em;
-      color: #fff;
-      background: none;
-      border: none;
-      cursor: pointer;
-      transition: color 0.2s;
-      padding: 0;
-      width: 22px;
-      height: 22px;
-      line-height: 1;
+      left: 0;
+      right: 0;
+      bottom: 0;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
     }
-    .menu-modal .close-menu:hover {
-      color: #00c853;
+    /* Botão de fechar bonito e pequeno para ambos os modais */
+    .close-menu {
+      width: 22px !important;
+      height: 22px !important;
+      min-width: 0 !important;
+      min-height: 0 !important;
+      max-width: 22px !important;
+      max-height: 22px !important;
+      font-size: 1em !important;
+      padding: 0 !important;
+      background: #fff !important;
+      color: #ff9800 !important;
+      border: 1.5px solid #ff9800 !important;
+      border-radius: 50% !important;
+      position: absolute !important;
+      top: 10px !important;
+      right: 10px !important;
+      box-shadow: 0 1px 2px #1112 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      z-index: 2 !important;
+      transition: color 0.2s, background 0.2s, border 0.2s !important;
+      line-height: 1 !important;
     }
-    .menu-modal h4 {
-      color: #00c853;
-      margin-top: 24px;
+    .close-menu:hover {
+      background: #ff9800 !important;
+      color: #fff !important;
+      border: 1.5px solid #388e3c !important;
+    }
+    .menu-modal-content h4 {
+      color: #388e3c;
+      margin-top: 0;
       margin-bottom: 18px;
       font-size: 1.15em;
-      text-align: center;
       font-weight: bold;
     }
-    .menu-modal button {
+    .menu-modal-content button {
       width: 100%;
       margin: 8px 0;
-      background: #444;
-      color: #fff;
-      border: none;
+      background: #fff;
+      color: #388e3c;
+      border: 1.5px solid #ff9800;
       border-radius: 6px;
       padding: 12px 0;
       font-size: 1.07em;
@@ -353,42 +393,9 @@
       text-align: left;
       padding-left: 18px;
     }
-    .menu-modal button:hover {
-      background: #00c853;
-      color: #222;
-    }
-    @media (max-width: 500px) {
-      .bloco-barbeiros,
-      .container {
-        width: 98vw;
-        max-width: 99vw;
-        padding: 12px 2vw;
-      }
-      .bloco-barbeiros label {
-        font-size: 1em;
-      }
-      .bloco-barbeiros select {
-        font-size: 1em;
-      }
-      .modal-content {
-        padding: 16px 4vw 12px 4vw;
-        min-width: unset;
-        max-width: 99vw;
-      }
-      .close-modal {
-        font-size: 1em;
-        height: 28px;
-        width: 28px;
-        padding: 0 4px;
-        top: 6px;
-      }
-      .modal-content h3 {
-        font-size: 1em;
-        padding-top: 2px;
-        margin-top: 28px;
-      }
-      .menu-modal { width: 90vw; min-width: 170px; }
-      .menu-modal .close-menu { font-size: 1em; width: 18px; height: 18px; }
+    .menu-modal-content button:hover {
+      background: #ff9800;
+      color: #fff;
     }
   </style>
 </head>
@@ -403,7 +410,6 @@
     </button>
   </header>
 
-  <!-- BLOCO DE BARBEIROS FORA DO CONTAINER -->
   <div class="bloco-barbeiros">
     <label for="selectBarbeiro">Barbeiros</label>
     <select id="selectBarbeiro" onfocus="carregarBarbeiros()">
@@ -411,9 +417,26 @@
     </select>
   </div>
 
+  <div class="bloco-cliente">
+    <label for="nomeCliente">Nome do Cliente</label>
+    <input type="text" id="nomeCliente" placeholder="Digite o nome do cliente" />
+  </div>
+
   <div class="container">
     <h1>Escolha seu serviço</h1>
     <div id="servicos-lista"></div>
+    <div id="valor-total"></div>
+    <div class="bloco-pagamento" style="margin-top: 18px">
+      <label for="formasPagamento">Forma(s) de Pagamento</label>
+      <select id="formasPagamento" multiple>
+        <option value="Débito">Débito</option>
+        <option value="Crédito">Crédito</option>
+        <option value="Pix">Pix</option>
+        <option value="Dinheiro">Dinheiro</option>
+        <option value="Fiado">Fiado</option>
+      </select>
+      <div id="valoresPagamento"></div>
+    </div>
     <div class="botoes">
       <button onclick="logout()">Sair</button>
       <button onclick="enviar()">Enviar</button>
@@ -424,7 +447,7 @@
   <!-- Modal do perfil -->
   <div class="modal" id="modalPerfil">
     <div class="modal-content">
-      <button class="close-modal" onclick="fecharPerfil()" aria-label="Fechar">&times;</button>
+      <button class="close-menu" onclick="fecharPerfil()" aria-label="Fechar">&times;</button>
       <h3>Perfil</h3>
       <div class="perfil-info">
         <div><span>Email:</span> <span id="perfil-email"></span></div>
@@ -436,16 +459,17 @@
     </div>
   </div>
 
-  <!-- Menu lateral (hamburguer) -->
+  <!-- Modal do menu -->
   <div class="menu-modal" id="menuModal">
-    <button class="close-menu" onclick="fecharMenu()" aria-label="Fechar">&times;</button>
-    <h4>Menu</h4>
-    <button onclick="window.location.href='estatisticas.html'">Estatísticas</button>
-    <button onclick="window.location.href='ver_solicitacoes.html'">Ver Solicitações</button>
-    <div id="menu-admin"></div>
+    <div class="menu-modal-content">
+      <button class="close-menu" onclick="fecharMenu()" aria-label="Fechar">&times;</button>
+      <h4>Menu</h4>
+      <button onclick="window.location.href='estatisticas.html'">Estatísticas</button>
+      <button onclick="window.location.href='ver_solicitacoes.html'">Ver Solicitações</button>
+      <div id="menu-admin"></div>
+    </div>
   </div>
 
-  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
   <script>
@@ -481,7 +505,6 @@
               select.appendChild(option);
             });
 
-            // Se for Barbeiro, trava o select no próprio nome
             if (usuarioLogado.categoria === "Barbeiro") {
               select.value = usuarioLogado.nome;
               select.disabled = true;
@@ -513,20 +536,24 @@
                 toggleServico(idx);
               };
               div.innerHTML = `
-          <span class="icone-servico"><i class="fa-solid fa-scissors"></i></span>
-          <div class="info-servico">
-            <div class="nome-servico">${s.nome}</div>
-            <div class="preco-servico">R$ ${s.preco},00</div>
-          </div>
-          <div class="checkbox-custom" id="check-${idx}">
-            <i class="fa-solid fa-check"></i>
-          </div>
-        `;
+                <span class="icone-servico"><i class="fa-solid fa-scissors"></i></span>
+                <div class="info-servico">
+                  <div class="nome-servico">${s.nome}</div>
+                  <div class="preco-servico">R$ ${s.preco},00</div>
+                </div>
+                <div class="checkbox-custom" id="check-${idx}">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+              `;
               lista.appendChild(div);
             });
+            atualizarValorTotal();
+            atualizarPagamentos();
           } else {
             lista.innerHTML =
               '<div style="color:#ff5252;">Nenhum serviço cadastrado!</div>';
+            atualizarValorTotal();
+            atualizarPagamentos();
           }
         });
     }
@@ -543,7 +570,83 @@
         div.classList.add("selected");
         checkbox.classList.add("checked");
       }
+      atualizarValorTotal();
+      atualizarPagamentos();
     }
+
+    function atualizarValorTotal() {
+      const selecionados = servicosSelecionados.map((idx) => servicosFirestore[idx]);
+      const valorTotal = selecionados.reduce((acc, s) => acc + s.preco, 0);
+      document.getElementById("valor-total").textContent =
+        "Valor Total: R$ " + valorTotal.toFixed(2).replace(".", ",");
+    }
+
+    // Atualiza os campos de pagamento quando muda valor total ou formas de pagamento
+    function atualizarPagamentos() {
+      const formasSelect = document.getElementById("formasPagamento");
+      const selecionadas = Array.from(formasSelect.selectedOptions).map(opt => opt.value);
+      const valoresDiv = document.getElementById("valoresPagamento");
+      valoresDiv.innerHTML = "";
+      if (selecionadas.length > 1) {
+        const selecionados = servicosSelecionados.map((idx) => servicosFirestore[idx]);
+        const valorTotal = selecionados.reduce((acc, s) => acc + s.preco, 0);
+        selecionadas.forEach((forma, idx) => {
+          valoresDiv.innerHTML += `
+            <div style="margin:8px 0;">
+              <span class="valor-pagamento-label">${forma}:</span>
+              <input type="number" min="0" step="0.01" class="valor-pagamento" data-forma="${forma}" placeholder="Valor em R$" oninput="validarSomaPagamentos()">
+            </div>
+          `;
+        });
+      }
+      validarSomaPagamentos();
+    }
+
+    document.getElementById("formasPagamento").addEventListener("change", function() {
+      atualizarPagamentos();
+    });
+
+    // Validação dos valores de pagamento
+    window.validarSomaPagamentos = function() {
+      const selecionados = servicosSelecionados.map((idx) => servicosFirestore[idx]);
+      const valorTotal = selecionados.reduce((acc, s) => acc + s.preco, 0);
+      let soma = 0;
+      let inputs = document.querySelectorAll('.valor-pagamento');
+      inputs.forEach(input => {
+        let v = parseFloat(input.value.replace(",", ".")) || 0;
+        soma += v;
+      });
+      // Limita o valor máximo em cada campo para não ultrapassar o valor total restante
+      let restante = valorTotal;
+      inputs.forEach((input, idx) => {
+        let outros = 0;
+        inputs.forEach((inp2, j) => {
+          if (j !== idx) {
+            outros += parseFloat(inp2.value.replace(",", ".")) || 0;
+          }
+        });
+        let max = Math.max(0, valorTotal - outros);
+        if (parseFloat(input.value.replace(",", ".")) > max) {
+          input.value = max.toFixed(2);
+        }
+      });
+      // Mostra aviso visual SOMENTE SE houver erro de soma e mais de uma forma selecionada
+      let valoresDiv = document.getElementById("valoresPagamento");
+      let aviso = valoresDiv.querySelector('.aviso-soma');
+      if (!aviso) {
+        aviso = document.createElement('div');
+        aviso.className = 'aviso-soma';
+        aviso.style.color = '#ff5252';
+        aviso.style.fontWeight = 'bold';
+        aviso.style.marginTop = '6px';
+        valoresDiv.appendChild(aviso);
+      }
+      if (inputs.length > 1 && Math.abs(soma - valorTotal) > 0.01) {
+        aviso.textContent = "A soma deve ser igual ao valor total!";
+      } else {
+        aviso.textContent = "";
+      }
+    };
 
     // Função para gerar o ID do documento de solicitações
     function barbeiroNomeParaId(nome) {
@@ -555,7 +658,6 @@
       const selectBarbeiro = document.getElementById("selectBarbeiro");
       let barbeiro = selectBarbeiro.value;
 
-      // Se for Barbeiro, força o nome do próprio usuário
       if (usuarioLogado.categoria === "Barbeiro") {
         barbeiro = usuarioLogado.nome;
       }
@@ -571,23 +673,66 @@
         return;
       }
 
-      const emailUsuario = usuarioLogado.email;
+      // Nome do cliente
+      const nomeCliente = document.getElementById("nomeCliente").value.trim();
+      if (!nomeCliente) {
+        mensagem.textContent = "Insira o nome do cliente!";
+        mensagem.style.color = "#ff5252";
+        return;
+      }
+
+      // Captura formas e valores
+      const formasSelect = document.getElementById("formasPagamento");
+      const selecionadas = Array.from(formasSelect.selectedOptions).map(opt => opt.value);
+      let pagamentos = [];
+      let somaPagamentos = 0;
+
+      if (selecionadas.length === 0) {
+        mensagem.textContent = "Selecione pelo menos uma forma de pagamento!";
+        mensagem.style.color = "#ff5252";
+        return;
+      }
+
       const selecionados = servicosSelecionados.map((idx) => servicosFirestore[idx]);
       const valorTotal = selecionados.reduce((acc, s) => acc + s.preco, 0);
 
-      // Para salvar data local, pois serverTimestamp não funciona em arrayUnion
+      if (selecionadas.length === 1) {
+        pagamentos = [{ forma: selecionadas[0], valor: valorTotal }];
+      } else {
+        document.querySelectorAll('.valor-pagamento').forEach(input => {
+          const forma = input.getAttribute('data-forma');
+          const valor = parseFloat(input.value.replace(",", ".")) || 0;
+          if (valor > 0) {
+            pagamentos.push({ forma, valor });
+            somaPagamentos += valor;
+          }
+        });
+        if (pagamentos.length === 0) {
+          mensagem.textContent = "Informe o valor para cada forma de pagamento!";
+          mensagem.style.color = "#ff5252";
+          return;
+        }
+        if (Math.abs(somaPagamentos - valorTotal) > 0.01) {
+          mensagem.textContent = "A soma dos pagamentos deve ser igual ao valor total dos serviços!";
+          mensagem.style.color = "#ff5252";
+          return;
+        }
+      }
+
+      const emailUsuario = usuarioLogado.email;
       const dataCriacao = new Date().toISOString();
 
       const solicitacao = {
         email: emailUsuario,
         barbeiro: barbeiro,
+        nomeCliente: nomeCliente,
         servicos: selecionados.map((s) => ({ nome: s.nome, preco: s.preco })),
         valorTotal: valorTotal,
+        pagamentos: pagamentos,
         status: "pendente",
         dataCriacao: dataCriacao,
       };
 
-      // Salva no documento correto (solicitacoes/{id_do_barbeiro})
       const docId = barbeiroNomeParaId(barbeiro);
 
       db.collection("solicitacoes")
@@ -604,9 +749,13 @@
             .set({ lista })
             .then(() => {
               mensagem.textContent = "Solicitação enviada com sucesso!";
-              mensagem.style.color = "#b2ff59";
+              mensagem.style.color = "#388e3c";
               servicosSelecionados = [];
               carregarServicos();
+              document.getElementById("nomeCliente").value = "";
+              formasSelect.selectedIndex = -1;
+              document.getElementById("valoresPagamento").innerHTML = "";
+              document.getElementById("valor-total").textContent = "";
               if (usuarioLogado.categoria !== "Barbeiro") {
                 selectBarbeiro.selectedIndex = 0;
               }
@@ -617,6 +766,12 @@
               mensagem.style.color = "#ff5252";
             });
         });
+    }
+
+    // Função de logout corrigida
+    function logout() {
+      localStorage.removeItem("usuarioLogado");
+      window.location.href = "index.html";
     }
 
     // Modal perfil dinâmico
@@ -631,68 +786,26 @@
     function fecharPerfil() {
       document.getElementById("modalPerfil").style.display = "none";
     }
-    function alterarSenha() {
-      const novaSenha = document.getElementById("novaSenha").value;
-      const mensagem = document.getElementById("perfil-mensagem");
-      if (novaSenha.length < 6) {
-        mensagem.textContent = "A senha deve ter pelo menos 6 caracteres.";
-        mensagem.style.color = "#ff5252";
-        return;
-      }
-      db.collection("usuarios")
-        .doc("usuarios")
-        .get()
-        .then((doc) => {
-          if (doc.exists && Array.isArray(doc.data().lista)) {
-            let usuarios = doc.data().lista;
-            const idx = usuarios.findIndex(
-              (u) => u.email === usuarioLogado.email
-            );
-            if (idx >= 0) {
-              usuarios[idx].senha = novaSenha;
-              db.collection("usuarios")
-                .doc("usuarios")
-                .set({ lista: usuarios })
-                .then(() => {
-                  mensagem.textContent = "Senha alterada com sucesso!";
-                  mensagem.style.color = "#b2ff59";
-                  usuarioLogado.senha = novaSenha;
-                  localStorage.setItem(
-                    "usuarioLogado",
-                    JSON.stringify(usuarioLogado)
-                  );
-                })
-                .catch((error) => {
-                  mensagem.textContent = "Erro ao salvar: " + error.message;
-                  mensagem.style.color = "#ff5252";
-                });
-            } else {
-              mensagem.textContent = "Usuário não encontrado!";
-              mensagem.style.color = "#ff5252";
-            }
-          } else {
-            mensagem.textContent = "Base de usuários não encontrada!";
-            mensagem.style.color = "#ff5252";
-          }
-        })
-        .catch((error) => {
-          mensagem.textContent = "Erro: " + error.message;
-          mensagem.style.color = "#ff5252";
-        });
-    }
 
-    function logout() {
-      localStorage.removeItem("usuarioLogado");
-      window.location.href = "index.html";
-    }
-
-    // Menu lateral (hamburguer)
+    // Modal menu dinâmico
     function abrirMenu() {
-      document.getElementById("menuModal").style.display = "block";
+      document.getElementById("menuModal").style.display = "flex";
     }
     function fecharMenu() {
       document.getElementById("menuModal").style.display = "none";
     }
+
+    // Fechar modais ao clicar fora do conteúdo
+    window.onclick = function(event) {
+      const modalPerfil = document.getElementById("modalPerfil");
+      const menuModal = document.getElementById("menuModal");
+      if (event.target === modalPerfil) {
+        fecharPerfil();
+      }
+      if (event.target === menuModal) {
+        fecharMenu();
+      }
+    };
 
     window.onload = carregarServicos;
 
@@ -710,7 +823,7 @@
           <button onclick="window.location.href='alterar_usuarios.html'">Alterar Usuários</button>
         `;
       } else {
-        menuAdmin.innerHTML = ""; // Não mostra nada para barbeiro
+        menuAdmin.innerHTML = "";
       }
     });
   </script>
